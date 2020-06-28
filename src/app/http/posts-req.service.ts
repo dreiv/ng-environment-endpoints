@@ -7,12 +7,12 @@ import { DataService } from './data.service';
 @Injectable({
   providedIn: 'root'
 })
-export class PostReqService {
+export class PostsReqService {
   constructor(private data: DataService) {}
 
   getAllPosts(limit: number): Observable<any[]> {
     return this.data
-      .getAll<any[]>(`posts`)
+      .getAll<any[]>('posts')
       .pipe(map(ret => ret.slice(0, limit)));
   }
 }
